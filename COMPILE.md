@@ -7,7 +7,7 @@ xelatex -interaction=nonstopmode main.tex
 xelatex -interaction=nonstopmode main.tex   # second pass for TOC/references
 ```
 
-Output: `main.pdf` (56 slides, 16:9 Beamer, Warsaw theme)
+Output: `main.pdf` (59 slides, 16:9 Beamer, Warsaw theme). One-command build: `./build.sh`
 
 ---
 
@@ -150,7 +150,7 @@ latexmk -C
 ## Project Structure
 
 ```
-KOMA_AI_chief_keynote_2026May/
+KOMA_AI_chief_keynote_2026Oct/
 ├── main.tex              # Source — single-file Beamer presentation
 ├── COMPILE.md            # This guide
 ├── *.svg                 # Vector logos and illustrations
