@@ -23,7 +23,7 @@
 
 \usetheme{Warsaw}
 
-\title{Holistic Healthcare from Taiwan Medical Mission \\ in the Republic of Somaliland}
+\title{Holistic Healthcare from Taiwan Medical Mission to Africa}
 \subtitle{How far is rural Taiwan from Africa? \\ 臺灣城市偏鄉 vs 非洲的距離}
 %\title{KOMA_TMM_chief_keynote_20230713_forTMWH}
 \author{Dr. Tex Li-Hsing Chi, D.D.S., Ph.D. \\
@@ -97,6 +97,8 @@
 }
 %%%
 
+% Red Crescent drawn in TikZ (the U+263E glyph is missing from the font); opens to the right like the backpack drawing
+\newcommand{\redcrescent}{\tikz[baseline=-0.55ex]{\fill[red!92] (0,0) circle (0.85ex); \fill[white] (0.32ex,0.08ex) circle (0.68ex);}}
 % one poem line: English, then the Chinese original in small grey
 \newcommand{\pl}[2]{#1\\[-0.15em]{\scriptsize\color{gray}#2}\\[0.25em]}
 
@@ -111,7 +113,7 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{Two TMMs in the World}
+\begin{frame}{Three Taiwan Medical Missions in Africa}
 \begin{tikzpicture}
 \node[anchor=west] (africa) at (0,0) {\includegraphics[width=0.4\textwidth]{worldMap_Africa.jpeg}};
 
@@ -124,6 +126,10 @@
 \node[anchor=north west] (TMM_swati) at ([xshift=+2.0cm, yshift=+0.5cm]africa.east) {\includegraphics[width=0.15\textwidth]{TMM_Eswatini_logo.jpg}};
 \node[anchor=west] at (TMM_swati.east) {2008/Sep};
 \draw[blue,thick,<-] (3.95,-1.8) -- (8.2,-1.0);
+
+% Missão Médica de Taiwan (MMT), São Tomé & Príncipe, Gulf of Guinea (Portuguese-speaking)
+\node[anchor=south west,align=left,font=\scriptsize\bfseries,text=black] (MMT_stp) at (0.08,-2.55) {Missão Médica\\ de Taiwan\\ (MMT), 2011\\ São Tomé \&\\ Príncipe};
+\draw[orange,very thick,<-] (2.15,-0.05) -- ([xshift=4mm]MMT_stp.north);
 %\draw (africa.east) -- (TMM_swati.west);
 \end{tikzpicture}
 \end{frame}
@@ -240,8 +246,8 @@ IDP (internally displaced persons) & 境內流離失所者 \\
 {\footnotesize\color{gray}問：東非索馬利蘭這個國家治安相較於其他國家好嗎？}
 
 \vspace{0.8em}
-\textbf{A:} Relatively safe (compared with South Africa or Central America), about the same as Eswatini in southern Africa. \\ Update: in May 2026, President Lai of the ROC (Taiwan) visited Eswatini. \\
-{\footnotesize\color{gray}答：相對安全（與南非、中美洲比），與南部非洲的史瓦濟蘭（史瓦帝尼）差不多。補充：2026 年 5 月，中華民國賴總統訪問史瓦帝尼。}
+\textbf{A:} Relatively safe (compared with South Africa or Central America), about the same as Eswatini in southern Africa. \\ Update: in May 2026, President Lai of the ROC (Taiwan) visited Eswatini; on 10 October 2026 (ROC National Day), King Mswati III of Eswatini visited Taiwan for the celebration. \\
+{\footnotesize\color{gray}答：相對安全（與南非、中美洲比），與南部非洲的史瓦濟蘭（史瓦帝尼）差不多。補充：2026 年 5 月，中華民國賴總統訪問史瓦帝尼；10 月 10 日國慶，史瓦帝尼國王恩史瓦帝三世訪臺同慶。}
 \end{frame}
 
 \begin{frame}{Q5. Who fits a medical mission in Africa?}
@@ -414,6 +420,8 @@ IDP (internally displaced persons) & 境內流離失所者 \\
         \includegraphics[width=0.50\textwidth]{IMG-2343.JPG}
         \includegraphics[width=0.20\textwidth]{IMG-2338.JPG}
     \end{center}
+    {\small Benign paroxysmal positional vertigo (BPPV, 耳石脫落) gave Dr.~Jamal severe vertigo $\rightarrow$
+    manual reduction by Dr.~Lin with the \textcolor{red}{Epley maneuver} (耳石復位：「將機車停好」, ``park the scooter properly'').}
 \end{frame}
 
 %%%%
@@ -574,7 +582,7 @@ IDP (internally displaced persons) & 境內流離失所者 \\
 \column{0.50\textwidth}
 \begin{outline}
 \1 \textbf{TMM builds trauma kits for\\Somaliland Armed Forces}
-  \2 Custom yellow field backpacks\\(marked with Red Crescent {\color{red}☾})
+  \2 Custom yellow field backpacks\\(marked with Red Crescent \redcrescent)
   \2 Tourniquet, haemostatic gauze,\\chest seal, bandages
 \1 \textbf{Field training}
   \2 TMM medics train local military\\medical officers on-site
@@ -627,6 +635,7 @@ Public health, we are studying
     \1 Evaluating the Diagnostic Accuracy of CT-Scans and Serum Fluoride Levels in Detecting \textcolor{red}{Skeletal Fluorosis} in the Somaliland Population with \textcolor{red}{Dental Fluorosis}
         \2 Dr. Mukhtar, Dr. Fadumo, Dr. Ahmed Hashi, and Dr. Tex
     \1 (TOM) AI-assistant Osteoporosis diagnosis
+        \2 AI can tell \textcolor{red}{bone density} from a pelvic X-ray
 \end{outline}
     
 \end{frame}
@@ -759,6 +768,8 @@ Public health, we are studying
         \includegraphics[width=0.45\textwidth]{IMG-5226.jpg}
 
     \end{center}
+    {\small Laas Geel rock art: a big cow with long, curved horns --- she gives birth to calves and gives milk.
+    She wears a \textcolor{red}{necklace} because she was the number-one cow of her time.}
 
 \end{frame}
 
@@ -802,7 +813,7 @@ Public health, we are studying
 %%%%%%%%%%
 \section{Conclusion}
 \begin{frame}
-\frametitle{Thanks all of TMM members (2022, 2023, 2024, ...)}
+\frametitle{Thanks all of TMM members (2022, 2023, 2024, 2025, 2026, ...)}
 % Add content here
 \begin{center}
 \raisebox{90mm}{
@@ -817,6 +828,8 @@ Public health, we are studying
 
 %%
 \begin{frame}{How to prepare for global health nursing}
+\vspace*{-0.9em}
+\small
 \begin{outline}
 \1 \textbf{Become an experienced RN first} --- the medical mission needs nurses with experience.
     \2 {\footnotesize\color{gray}醫療團要等到護理師有經驗之後}
@@ -826,6 +839,9 @@ Public health, we are studying
     \2 {\footnotesize\color{gray}身處英語環境，聽力自然會大幅成長}
 \1 \textbf{Compassion, empathy, friendship, adaptability} --- and be ready to \textcolor{red}{learn from them}.
     \2 {\footnotesize\color{gray}有愛心、同理心、愛交朋友，能隨遇而安}
+\1 \textbf{AI capability} --- use LLMs and AI tools for speed and quality; English writing is no longer a barrier for non-native speakers.
+    \2 {\footnotesize AI is a \textcolor{red}{friend}: we work together and learn from each other --- met by 緣, kept by 愛.}
+    \2 {\footnotesize\color{gray}善用 AI 提升速度與品質；AI 是人類的朋友，一起工作、互相學習。}
 \end{outline}
 \end{frame}
 
@@ -866,7 +882,7 @@ TMM is writing Somaliland's medical history \\
 %Whenever TMM's members have short-term or long-term work in Somaliland,
 
 %\1 TMM members work as a team in Somaliland, whether they are there for a short time or for a long time.
-\1 You can, however, think about how you can use the skills and experiences \textcolor{red}{you gained} here in your future job and life in Taiwan.
+\1 You can, however, think about how you can use the skills and experiences \textcolor{red}{you learned from here} in your future job and life in Taiwan.
 %\1 You can make the most of this time as a chance to learn and grow so that you can help us all get
 %through \textcolor{blue}{the challenges} that we face here. 
 %\1 We think that constant help is important for our overseas mission to be successful.
@@ -926,19 +942,19 @@ TMU: Passion under the White Coat --- sequel 2026 \\
 
 \column{0.52\textwidth}
 \begin{center}
-{\large\bfseries 臺灣醫療使命}\\[0.8em]
+{\large\bfseries 臺灣醫療使命}\\[0.5em]
 {\normalsize
-寶島醫隊越重洋，\\[0.35em]
-索蘭史瓦共翱翔。\\[0.35em]
-公衛教學攜手志，\\[0.35em]
-臺史共燃智慧光。\\[0.8em]
+寶島醫隊越重洋，\\[0.2em]
+索蘭史瓦共翱翔。\\[0.2em]
+公衛教學攜手志，\\[0.2em]
+臺史共燃智慧光。\\[0.5em]
 }
 {\footnotesize\color{gray}
 Taiwan's medical team crosses the vast ocean;\\
 Somaliland and Eswatini, soaring together.\\
 Joining hands — public health and teaching as equals;\\
-Taiwan \& Eswatini kindle wisdom's light together.\\[0.5em]
-TMM Somaliland 2022 ／ TMM Eswatini 2008\\
+Taiwan \& Eswatini kindle wisdom's light together.\\[0.3em]
+TMM Somaliland 2022\\ MMT São Tomé \& Príncipe 2011\\ TMM Eswatini 2008\\[0.2em]
 FTM AI Chief 2025
 }
 \end{center}

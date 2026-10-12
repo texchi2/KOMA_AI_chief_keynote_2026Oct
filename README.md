@@ -1,6 +1,6 @@
 # KOMA AI Chief Keynote — 13 October 2026 (EMI edition)
 
-**Holistic Healthcare from Taiwan Medical Mission in the Republic of Somaliland**  
+**Holistic Healthcare from Taiwan Medical Mission to Africa**  
 How far is rural Taiwan from Africa? · 臺灣城市偏鄉 vs 非洲的距離
 
 > Speaker: **Dr. Tex Li-Hsing Chi**, D.D.S., Ph.D.  
@@ -22,17 +22,23 @@ the first three commits here are its history.
 
 | Slide(s) | Change |
 |---|---|
-| 1 | Date, venue and programme; English subtitle |
+| 1 | Title "…to Africa"; date, venue and programme; English subtitle |
+| 2 | Three Taiwan Medical Missions in Africa: + Missão Médica de Taiwan (MMT), São Tomé & Príncipe, 2011 |
 | 4 | **New:** key words for today — 16 terms, English ⇄ 中文 |
 | 6 | Overture poem: English line first, Chinese original below |
 | 7–13 | Q&A 2023 → **Students' Q&A**: English question and answer first, Chinese below; students' names and times removed |
+| 10 | Q4 update: President Lai's May 2026 visit to Eswatini; King Mswati III's visit to Taiwan for National Day, 10 Oct 2026 |
+| 25 | Caption: BPPV (耳石脫落) → Epley maneuver by Dr. Lin (耳石復位，「將機車停好」) |
 | 29 | **New:** Nurses in TMM (teaching · service · public health) |
-| 54 | **New:** How to prepare for global health nursing (drawn from the Q&A answers) |
+| 33 | Red Crescent drawn in TikZ (the ☾ glyph was missing from the font) |
+| 36 | TOM: AI can tell bone density from a pelvic X-ray |
+| 49 | Legend for the Laas Geel rock art (the number-one cow and her necklace) |
+| 53 | Thanks to TMM members 2022–2026 |
+| 54 | **New:** How to prepare for global health nursing — incl. **AI capability** (AI as a friend: 緣 and 愛) |
 | 55 | Take Home Message: Teaching / Service / Public health, with Chinese |
+| 56 | "…the skills and experiences you learned from here…" |
 | 58 | Finale: English line first, Chinese below |
-| 59 | Epilogue 七言絕句 — unchanged (already bilingual) |
-
-Q4's 2026 note now says what it refers to: President Lai's May 2026 visit to Eswatini.
+| 59 | Epilogue 七言絕句 — poem unchanged; missions: TMM Somaliland 2022 · MMT São Tomé & Príncipe 2011 · TMM Eswatini 2008 |
 
 ---
 
