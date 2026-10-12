@@ -38,7 +38,7 @@ the first three commits here are its history.
 | 55 | Take Home Message: Teaching / Service / Public health, with Chinese |
 | 56 | "…the skills and experiences you learned from here…" |
 | 58 | Finale: English line first, Chinese below |
-| 59 | Epilogue 七言絕句 — poem unchanged; missions: TMM Somaliland 2022 · MMT São Tomé & Príncipe 2011 · TMM Eswatini 2008 |
+| 59 | Epilogue 七言絕句 — poem unchanged; newest first: FTM AI Chief 2025 · TMM Somaliland 2022 · MMT São Tomé & Príncipe 2011 · TMM Eswatini 2008 |
 
 ---
 
