@@ -101,6 +101,13 @@
 \newcommand{\redcrescent}{\tikz[baseline=-0.55ex]{\fill[red!92] (0,0) circle (0.85ex); \fill[white] (0.32ex,0.08ex) circle (0.68ex);}}
 % one poem line: English, then the Chinese original in small grey
 \newcommand{\pl}[2]{#1\\[-0.15em]{\scriptsize\color{gray}#2}\\[0.25em]}
+% v2 2026-10-13: map labels, diagram boxes
+\tikzset{pinlabel/.style={font=\tiny\bfseries,fill=white,fill opacity=0.85,text opacity=1,inner sep=1.5pt,rounded corners=1pt},
+         flowbox/.style={draw,rounded corners=2pt,fill=#1,align=center,font=\scriptsize,inner sep=3pt,minimum height=0.9cm,text width=2.05cm},
+         flowbox/.default=blue!8,
+         person/.style={circle,fill=#1,minimum size=7pt,inner sep=0pt},
+         flowarrow/.style={-{Stealth[length=2mm]},thick,gray!70!black}}
+\usetikzlibrary{arrows.meta,positioning}
 
 \begin{document}
 %\begin{abstract}
@@ -132,6 +139,46 @@
 \draw[orange,very thick,<-] (2.15,-0.05) -- ([xshift=4mm]MMT_stp.north);
 %\draw (africa.east) -- (TMM_swati.west);
 \end{tikzpicture}
+\end{frame}
+
+% v2 2026-10-13 (P2): pins follow slide 2's dates; the Horn inset follows the speaker's own words "L 形，像個 7"
+\begin{frame}{Where in Africa? 非洲的哪裡}
+\begin{columns}[c]
+\column{0.55\textwidth}
+\begin{tikzpicture}
+\node[anchor=south west,inner sep=0] (m) at (0,0) {\includegraphics[width=5.6cm]{worldMap_Africa.jpeg}};
+\begin{scope}[x={(m.south east)},y={(m.north west)}]
+  \draw[dashed,very thick,brown!60!black] (0.08,0.685) -- (0.80,0.675);
+  \node[pinlabel,text=brown!40!black] at (0.30,0.735) {North Africa};
+  \node[pinlabel,text=brown!40!black] at (0.30,0.630) {Sub-Saharan Africa};
+  \node[font=\tiny\itshape,text=brown!40!black] at (0.60,0.705) {Sahara};
+  \foreach \u/\v in {0.675/0.842, 0.829/0.607, 0.365/0.492, 0.670/0.195}
+     \fill[red!85!black,draw=white,line width=0.6pt] (\u,\v) circle (2.2pt);
+  \node[pinlabel,anchor=west] at (0.70,0.865) {Egypt 2025 (visit)};
+  \node[pinlabel,anchor=west] at (0.85,0.615) {Somaliland 2022/July};
+  \node[pinlabel,anchor=east,align=right] at (0.34,0.492) {São Tomé \&\\ Príncipe 2011};
+  \node[pinlabel,anchor=west] at (0.70,0.175) {Eswatini 2008/Sep};
+\end{scope}
+\end{tikzpicture}
+\column{0.43\textwidth}
+\begin{tikzpicture}
+\node[anchor=south west,inner sep=0,draw=gray!60] (h) at (0,0) {\includegraphics[width=4.6cm]{map_horn_crop.jpg}};
+\begin{scope}[x={(h.south east)},y={(h.north west)}]
+  \fill[blue!70,opacity=0.30] (0.31,0.533) -- (0.60,0.566) -- (0.553,0.385) -- (0.31,0.507) -- cycle;
+  \draw[red,line width=4pt,opacity=0.40,line cap=round,line join=round] (0.31,0.575) -- (0.70,0.595) -- (0.29,0.04);
+  \node[font=\fontsize{36}{36}\selectfont\bfseries,text=red,opacity=0.35] at (0.74,0.33) {7};
+  \draw[-{Stealth[length=2mm]},thick,blue!60!black] (0.55,0.49) -- (0.41,0.505);
+  \fill[black] (0.371,0.49) circle (1.6pt);
+  \node[font=\tiny\bfseries,anchor=north] at (0.371,0.475) {Hargeisa};
+  \node[pinlabel,text=blue!50!black] at (0.46,0.68) {Somaliland};
+  \node[pinlabel] at (0.42,0.18) {Somalia};
+\end{scope}
+\end{tikzpicture}\\[0.3em]
+{\scriptsize The ``L'' --- like a 7: Somaliland is the horizontal stroke, Somalia the vertical one.
+Arrow: IDPs moving west, away from the fighting in the east.}
+\end{columns}
+\vspace{0.3em}
+{\scriptsize\color{gray} São Tomé \& Príncipe: Taiwan's diplomatic ally until 2016. Eswatini: Taiwan's ally in Africa today.}
 \end{frame}
 
 \begin{frame}
@@ -175,6 +222,22 @@ telepathology & 遠距病理 \\
 IDP (internally displaced persons) & 境內流離失所者 \\
 \end{tabular}
 \end{columns}
+\end{frame}
+
+% v2 2026-10-13 (P1): word roots — the speaker teaches "tele = far" at 33:41
+\begin{frame}{Word roots 字根: read a long word in parts}
+\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}lll@{}}
+\textbf{word} & \textbf{parts} & \textbf{meaning} \\ \hline
+antenatal & \textcolor{red}{ante} $\mid$ \textcolor{blue}{natal} & before $\mid$ birth \quad 產前 \\
+telepathology & \textcolor{red}{tele} $\mid$ \textcolor{blue}{patho} $\mid$ logy & far $\mid$ disease $\mid$ study of \quad 遠距病理 \\
+theatre & Greek \textit{theatron} & a place for watching \quad 手術「劇場」 \\
+obstetrics & Latin \textit{obstetrix} & midwife, ``one who stands by'' \quad 產科 \\
+gynaecology & \textcolor{red}{gynaeco} $\mid$ logy & woman $\mid$ study of \quad 婦科 \\
+orthopaedics & \textcolor{red}{ortho} $\mid$ \textcolor{blue}{paed} $\mid$ ics & straight $\mid$ child \quad 骨科 \\
+osteoporosis & \textcolor{red}{osteo} $\mid$ \textcolor{blue}{por} $\mid$ osis & bone $\mid$ pore $\mid$ condition \quad 骨質疏鬆 \\
+\end{tabular}
 \end{frame}
 
 
@@ -364,9 +427,10 @@ IDP (internally displaced persons) & 境內流離失所者 \\
 
 \begin{frame}{Medical affairs - trauma ward}
     \begin{center}
-        \includegraphics[width=0.8\textwidth]{IMG-4862827583386425169.de8939a35ce768375740b709dce51958.23032108.JPG}
+        \includegraphics[width=0.68\textwidth]{IMG-4862827583386425169.de8939a35ce768375740b709dce51958.23032108.JPG}
 %        \includegraphics[width=0.2\textwidth]{6963.jpg}
     \end{center}
+    {\small Dr.~Hassan Nour Madadaal, orthopaedic resident at HGH (nickname ``Madadaal'' = happy).}
 \end{frame}
     
 \begin{frame}{Medical affairs - operation theatre}
@@ -376,12 +440,51 @@ IDP (internally displaced persons) & 境內流離失所者 \\
     \end{center}
 \end{frame}
 
+% v2 2026-10-13 (P1): the speaker's request — operation "theatre"; drawn, no licence question
+\begin{frame}{Operation \emph{theatre}: then and now 手術「劇場」}
+\begin{columns}[t]
+\column{0.46\textwidth}
+\centering{\small\textbf{Then}: a teaching theatre (1800s)}\\[0.4em]
+\begin{tikzpicture}[scale=0.72]
+  \foreach \r in {1.3,1.8,2.3,2.8}{
+     \draw[gray!35,line width=7pt] (15:\r) arc (15:165:\r);
+     \foreach \a in {25,40,...,160} \fill[gray!75!black] (\a:\r) circle (1.5pt);
+  }
+  \fill[brown!60] (-0.5,-0.2) rectangle (0.5,0.2);
+  \node[person=blue!70!black,label={[font=\tiny]right:surgeon}] at (0.75,-0.05) {};
+  \node[font=\tiny] at (0,-0.5) {table + patient};
+  \node[font=\tiny,align=center] at (0,3.3) {students watch from the tiers};
+\end{tikzpicture}\\[0.2em]
+{\small Greek \textit{theatron} = ``a place for watching''}
+\column{0.52\textwidth}
+\centering{\small\textbf{Now}: the sterile field (top view)}\\[0.4em]
+\begin{tikzpicture}[scale=0.72]
+  \draw[thick] (-2.9,-2.1) rectangle (2.9,2.5);
+  \fill[green!12] (-1.7,-1.2) rectangle (1.7,1.45);
+  \draw[green!45!black,dashed,thick] (-1.7,-1.2) rectangle (1.7,1.45);
+  \node[font=\tiny,text=green!35!black,anchor=south west] at (-1.7,1.45) {sterile field};
+  \fill[brown!50] (-0.35,-0.9) rectangle (0.35,1.2);
+  \node[font=\tiny,rotate=90] at (0,0.15) {patient};
+  \draw[very thick,blue!50!black] (-0.7,1.3) -- (0.7,1.3);
+  \node[person=purple!70!black,label={[font=\tiny]right:anaesthetist}] at (0,1.9) {};
+  \node[person=blue!70!black,label={[font=\tiny]right:surgeon}] at (0.75,0.25) {};
+  \node[person=teal!70!black,label={[font=\tiny,align=center]above:{scrub\\nurse}}] at (-0.8,0.25) {};
+  \draw[fill=gray!30] (-1.55,-0.95) rectangle (-0.75,-0.45);
+  \node[font=\tiny,align=center] at (-1.15,-0.7) {tray};
+  \node[person=orange!80!black,label={[font=\tiny,align=center]right:circulating nurse}] at (-2.3,-1.65) {};
+\end{tikzpicture}\\[0.2em]
+{\scriptsize Scrub nurse: inside the field, hands the instruments.\\
+Circulating nurse: outside it --- fetches, opens packs, counts, records.}
+\end{columns}
+\end{frame}
+
 
 \begin{frame}{Medical affairs - OBS, ED}
     \begin{center}
         \includegraphics[width=0.25\textwidth, trim=50mm 20mm 40mm 50mm, clip]{52165_antenatal_check.jpg}
         \includegraphics[width=0.4\textwidth]{IMG_5068.jpeg}
     \end{center}
+    {\small Dr.~Lin (obstetrics) and Nurse Marwo Rakia, TMM's local nurse.}
 \end{frame}
 
 \begin{frame}{Medical affairs - ED, ward}
@@ -424,6 +527,34 @@ IDP (internally displaced persons) & 境內流離失所者 \\
     manual reduction by Dr.~Lin with the \textcolor{red}{Epley maneuver} (耳石復位：「將機車停好」, ``park the scooter properly'').}
 \end{frame}
 
+% v2 2026-10-13 (P1): Epley — drawn; NOT a self-treatment recipe
+\begin{frame}{The Epley maneuver: how the crystals go home 耳石復位}
+\begin{columns}[c]
+\column{0.34\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.9]
+  \draw[line width=5pt,blue!25] (0,0) circle (1.1);
+  \fill[gray!25,draw=gray] (-0.2,-1.65) ellipse (0.75 and 0.35);
+  \node[font=\tiny] at (-0.2,-1.65) {utricle};
+  \foreach \a in {120,140,160} \fill[orange!85!black] (\a:1.1) circle (2pt);
+  \draw[-{Stealth[length=2mm]},thick,orange!85!black] (175:1.45) arc (175:255:1.45);
+  \node[font=\tiny,align=center] at (0,0) {semicircular\\canal};
+  \node[font=\tiny,text=orange!60!black,align=center] at (125:1.75) {loose crystals\\(otoconia)};
+\end{tikzpicture}\\[0.2em]
+{\scriptsize Crystals roll into a canal $\rightarrow$ every head turn feels like spinning.
+The maneuver rolls them back out.}
+\column{0.64\textwidth}
+\begin{tikzpicture}[node distance=0.35cm]
+  \node[flowbox] (s1) {\textbf{1} Sit; turn the head 45° towards the affected ear};
+  \node[flowbox,right=of s1] (s2) {\textbf{2} Lie back quickly, head hanging slightly; hold};
+  \node[flowbox,below=of s2] (s3) {\textbf{3} Turn the head 90° to the other side; hold};
+  \node[flowbox,left=of s3] (s4) {\textbf{4} Roll onto that side, nose down; hold, then sit up};
+  \draw[flowarrow] (s1) -- (s2); \draw[flowarrow] (s2) -- (s3); \draw[flowarrow] (s3) -- (s4);
+\end{tikzpicture}\\[0.4em]
+{\scriptsize\color{red} The side depends on the affected ear; done with a clinician, not a self-treatment recipe.}
+\end{columns}
+\end{frame}
+
 %%%%
 \begin{frame}
 \frametitle{TMM's Projects - second pillar}
@@ -446,17 +577,19 @@ IDP (internally displaced persons) & 境內流離失所者 \\
 
 \begin{frame}{Capacity building: orthopedic}
     \begin{center}
-        \includegraphics[width=0.30\textwidth]{IMG-6067.jpg}
-        \includegraphics[width=0.30\textwidth]{IMG-6227.JPG}
+        \includegraphics[height=0.66\textheight]{IMG-6067.jpg}
+        \includegraphics[height=0.66\textheight]{IMG-6227.JPG}
     \end{center}
+    {\small Arthroscopy training with Dr.~Hassan Nour Madadaal (orthopaedic resident).}
 \end{frame}
 
 
 \begin{frame}{Capacity building: nurse, urology}
     \begin{center}
-        \includegraphics[width=0.30\textwidth]{6963.jpg}
-        \includegraphics[width=0.30\textwidth]{IMG_5040.jpeg}
+        \includegraphics[height=0.66\textheight]{6963.jpg}
+        \includegraphics[height=0.66\textheight]{IMG_5040.jpeg}
     \end{center}
+    {\small With Nurse Marwo Rakia and a senior urologist at HGH.}
 \end{frame}
 
 \begin{frame}{Nurses in TMM 醫療團的護理師}
@@ -497,6 +630,30 @@ IDP (internally displaced persons) & 境內流離失所者 \\
     \begin{center}
         \includegraphics[width=0.8\textwidth]{4879921870343011711.12ba1a84484c21cdb54161b56f33e999.23050712.JPG}
     \end{center}
+\end{frame}
+
+% v2 2026-10-13 (P2): the packing line as the speaker told it (1:04:33) — 10 stations, one item each; no item names invented
+\begin{frame}{Trauma kits: a 10-station packing line 跑台式打包}
+\centering
+\begin{tikzpicture}[x=1.15cm]
+  \foreach \i in {1,...,10}{
+     \node[draw,rounded corners=2pt,fill=red!8,minimum width=0.95cm,minimum height=0.8cm,font=\scriptsize] (st\i) at (\i,0) {\textbf{\i}};
+  }
+  \foreach \i [evaluate=\i as \j using int(\i+1)] in {1,...,9} \draw[flowarrow] (st\i) -- (st\j);
+  \node[font=\scriptsize,align=center,anchor=east] at (0.4,0) {empty\\pack};
+  \node[font=\scriptsize,align=center,anchor=west] at (10.6,0) {full\\pack};
+  \node[font=\scriptsize] at (5.5,0.85) {one item added at each station --- walked like an OSCE circuit};
+\end{tikzpicture}\\[1.0em]
+\begin{columns}[t]
+\column{0.45\textwidth}
+\textbf{300 medic backpacks}\\
+{\small more equipment: IV line, splints and fixation; the medic comes to the injured and prepares the evacuation.}
+\column{0.45\textwidth}
+\textbf{500 individual first-aid pouches}\\
+{\small bandage, haemostatic, painkiller: stop the bleeding first, on site, by yourself.}
+\end{columns}
+\vspace{0.6em}
+{\footnotesize\color{gray}The medics packed their own kits after a week of preparation --- they learn the kit by building it.}
 \end{frame}
 
 %%
@@ -597,8 +754,9 @@ IDP (internally displaced persons) & 境內流離失所者 \\
         \includegraphics[width=0.24\textwidth]{IMG-5107.JPG}
         \includegraphics[width=0.24\textwidth]{IMG-4703.JPG}
         \includegraphics[width=0.24\textwidth]{IMG-5062.JPG}
-        \includegraphics[width=0.24\textwidth]{6a625355-ae53-4e8f-891e-38a933f6c29b.JPG}    
+        \includegraphics[width=0.24\textwidth]{6a625355-ae53-4e8f-891e-38a933f6c29b.JPG}
     \end{center}
+    {\small Left: Dr.~Hassan Nour Madadaal with Abdilahi, our driver.}
 \end{frame}
 %%    
 \begin{frame}
@@ -624,6 +782,28 @@ IDP (internally displaced persons) & 境內流離失所者 \\
 
 \end{frame}
 
+% v2 2026-10-13 (P1): the speaker's 30:30-32:50 and 45:25 points; dengue = "no routine vaccine" (licensed vaccines exist in some countries)
+\begin{frame}{The double burden 雙重疾病負擔}
+\begin{columns}[t]
+\column{0.46\textwidth}
+\begin{tikzpicture}
+  \node[flowbox=orange!12,text width=2.5cm,minimum height=2.2cm] (c) at (0,0) {\textbf{Communicable}\\ 傳染病\\[0.2em] malaria (mosquito), gastroenteritis, intestinal parasites, hepatitis B, dengue, HPV};
+  \node[flowbox=blue!10,text width=2.5cm,minimum height=2.2cm] (n) at (3.0,0) {\textbf{Non-communicable (NCD)}\\ 非傳染病\\[0.2em] hypertension, diabetes, most cancers};
+  \node[font=\scriptsize,align=center] at (1.5,-1.65) {Taiwan: mostly NCD.\\ \textcolor{red}{Africa: both at once.}};
+\end{tikzpicture}
+\column{0.52\textwidth}
+\footnotesize
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}p{1.5cm}p{1.6cm}p{3.0cm}@{}}
+\textbf{infection} & \textbf{vaccine?} & \textbf{what else} \\ \hline
+hepatitis B & yes & screen first, then vaccinate \\
+HPV & yes & Pap smear screening against cervical cancer \\
+dengue & no routine vaccine & mosquito control \\
+\end{tabular}\\[0.6em]
+{\scriptsize Cervical cancer: a cancer caused by an infection --- the exception among cancers.}
+\end{columns}
+\end{frame}
+
 %%%
 
 \begin{frame}{Oral health research}
@@ -638,6 +818,26 @@ Public health, we are studying
         \2 AI can tell \textcolor{red}{bone density} from a pelvic X-ray
 \end{outline}
     
+\end{frame}
+
+% v2 2026-10-13 (P2): photo = the Captain's (shared publicly by him; EXIF stripped); no accuracy numbers until published
+\begin{frame}{AI for osteoporosis (TOM): from a plain X-ray}
+\begin{columns}[c]
+\column{0.44\textwidth}
+\includegraphics[width=\linewidth]{DrMukhtar_TOM.jpg}\\
+{\scriptsize Dr.~Mukhtar (Hargeisa, co-investigator) and Dr.~Tex, Oct 2024}
+\column{0.54\textwidth}
+\begin{tikzpicture}[node distance=0.22cm]
+  \node[flowbox=yellow!15,text width=4.0cm,minimum height=0.6cm] (a) {limited sun exposure $\rightarrow$ low vitamin D};
+  \node[flowbox=yellow!15,text width=4.0cm,minimum height=0.6cm,below=of a] (b) {early bone loss};
+  \node[flowbox=green!12,text width=4.0cm,minimum height=0.6cm,below=of b] (c) {plain pelvic X-ray (about NT\$200)};
+  \node[flowbox=green!12,text width=4.0cm,minimum height=0.6cm,below=of c] (d) {TOM AI $\rightarrow$ estimated bone density (T-score)};
+  \foreach \p/\q in {a/b,b/c,c/d} \draw[flowarrow] (\p) -- (\q);
+  \node[flowbox=gray!12,text width=1.8cm,minimum height=0.6cm,right=0.45cm of c] (x) {DEXA scan\\ NT\$2,000--3,000};
+  \draw[dashed,gray] (c) -- node[above,font=\tiny]{vs} (x);
+\end{tikzpicture}\\[0.4em]
+{\scriptsize T-score $\le -2.5$ = osteoporosis (WHO definition). A cheap X-ray, read by AI, to find who needs care.}
+\end{columns}
 \end{frame}
 
 
@@ -732,12 +932,30 @@ Public health, we are studying
     \end{center}
 \end{frame}
 
+% v2 2026-10-13 (P1): the speaker's 33:41 explanation
+\begin{frame}{Telepathology: \emph{tele} = far 遠距病理}
+\centering
+\begin{tikzpicture}[node distance=0.32cm]
+  \node[flowbox] (a) {surgery or biopsy in Hargeisa};
+  \node[flowbox,right=of a] (b) {glass slide, cut and stained};
+  \node[flowbox,right=of b] (c) {scanner $\rightarrow$ digital image (several GB)};
+  \node[flowbox,right=of c] (d) {internet to Taipei};
+  \node[flowbox=green!12,below=0.7cm of d] (e) {pathologist (TMU) reads it};
+  \node[flowbox=green!12,left=of e] (f) {report back to the surgeon};
+  \node[flowbox=green!12,left=of f] (g) {right diagnosis, right treatment};
+  \draw[flowarrow] (a) -- (b); \draw[flowarrow] (b) -- (c); \draw[flowarrow] (c) -- (d);
+  \draw[flowarrow] (d) -- (e); \draw[flowarrow] (e) -- (f); \draw[flowarrow] (f) -- (g);
+\end{tikzpicture}\\[0.8em]
+{\small Why? Pathologists are scarce --- even in Taiwan. Before telepathology, the team could only guess from the specimen.}
+\end{frame}
 
-\begin{frame}{Teleconsultation: non-human vertebrae (cheetah)}
+
+\begin{frame}{Teleconsultation: non-human vertebrates (cheetah)}
     \begin{center}
-        \includegraphics[width=0.35\textwidth]{457256160987709682.jpg}        \includegraphics[width=0.35\textwidth, origin=c,angle=180]{IMG-5116.JPG}
+        \includegraphics[width=0.27\textwidth]{457256160987709682.jpg}        \includegraphics[width=0.27\textwidth, origin=c,angle=180]{IMG-5116.JPG}
 
     \end{center}
+    {\footnotesize Cheetah Conservation Fund (CCF), Hargeisa --- cheetah.org. Their veterinarian sent photos of a cheetah's bite for a tele-consultation.}
 \end{frame}
 
 %%%%%%%%%%%%%%%%5555
@@ -795,6 +1013,7 @@ Public health, we are studying
     \includegraphics[width=0.3\textwidth, trim=60mm 60mm 30mm 60mm,clip]{52165_antenatal_check.jpg}
 
 \end{center}
+{\small Nimco, wife of Abdilahi --- our best driver --- sees her baby on ultrasound for the first time.}
 \end{frame}
 
 %% Ismail oral cancer
@@ -902,6 +1121,25 @@ TMM is writing Somaliland's medical history \\
     \column{0.6\textwidth}
     \includegraphics[width=0.7\textwidth]{IMG_1713.jpeg}
     \end{columns}  
+\end{frame}
+
+% v2 2026-10-13: the speaker's words at 1:33:38; drop family_TexCandie.jpg beside main.tex and the photo appears
+\newcommand{\familytext}{%
+\begin{outline}
+\1 \textbf{Jamal Tex \& Candie Chang}
+\1 Married on 6 December 2009 at the Embassy of the Republic of China (Taiwan), Mbabane, Kingdom of Swaziland
+\1 Together to São Tomé \& Príncipe, then home to Taiwan
+\1 Candie works in long-term care in Taiwan (長照 2.0 $\rightarrow$ 3.0) --- her people cannot do without her
+\end{outline}}
+\begin{frame}{Family 家人}
+\IfFileExists{family_TexCandie.jpg}{%
+\begin{columns}[c]
+\column{0.48\textwidth}
+\includegraphics[width=\linewidth]{family_TexCandie.jpg}
+\column{0.50\textwidth}
+\familytext
+\end{columns}}{%
+\begin{center}\begin{minipage}{0.8\textwidth}\familytext\end{minipage}\end{center}}
 \end{frame}
 
 
