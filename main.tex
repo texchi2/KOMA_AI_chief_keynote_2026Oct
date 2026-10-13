@@ -164,18 +164,16 @@
 \begin{tikzpicture}
 \node[anchor=south west,inner sep=0,draw=gray!60] (h) at (0,0) {\includegraphics[width=4.6cm]{map_horn_crop.jpg}};
 \begin{scope}[x={(h.south east)},y={(h.north west)}]
-  \fill[blue!70,opacity=0.30] (0.31,0.533) -- (0.60,0.566) -- (0.553,0.385) -- (0.31,0.507) -- cycle;
-  \draw[red,line width=4pt,opacity=0.40,line cap=round,line join=round] (0.31,0.575) -- (0.70,0.595) -- (0.29,0.04);
-  \node[font=\fontsize{36}{36}\selectfont\bfseries,text=red,opacity=0.35] at (0.74,0.33) {7};
+  \draw[red,line width=3pt,opacity=0.35,line cap=round,line join=round] (0.31,0.53) -- (0.68,0.555) -- (0.60,0.375) -- (0.48,0.19) -- (0.37,0.02);
+  \node[font=\fontsize{36}{36}\selectfont\bfseries,text=red,opacity=0.35] at (0.82,0.33) {7};
   \draw[-{Stealth[length=2mm]},thick,blue!60!black] (0.55,0.49) -- (0.41,0.505);
   \fill[black] (0.371,0.49) circle (1.6pt);
   \node[font=\tiny\bfseries,anchor=north] at (0.371,0.475) {Hargeisa};
-  \node[pinlabel,text=blue!50!black] at (0.46,0.68) {Somaliland};
+  \node[pinlabel,text=green!35!black] at (0.46,0.68) {Somaliland};
   \node[pinlabel] at (0.42,0.18) {Somalia};
 \end{scope}
 \end{tikzpicture}\\[0.3em]
-{\scriptsize The ``L'' --- like a 7: Somaliland is the horizontal stroke, Somalia the vertical one.
-Arrow: IDPs moving west, away from the fighting in the east.}
+{\scriptsize The ``L'', like a 7: Somaliland (green) is the horizontal stroke, Somalia the vertical one. Arrow: IDPs moving west.}
 \end{columns}
 \vspace{0.3em}
 {\scriptsize\color{gray} São Tomé \& Príncipe: Taiwan's diplomatic ally until 2016. Eswatini: Taiwan's ally in Africa today.}
@@ -635,15 +633,19 @@ The maneuver rolls them back out.}
 % v2 2026-10-13 (P2): the packing line as the speaker told it (1:04:33) — 10 stations, one item each; no item names invented
 \begin{frame}{Trauma kits: a 10-station packing line 跑台式打包}
 \centering
-\begin{tikzpicture}[x=1.15cm]
-  \foreach \i in {1,...,10}{
-     \node[draw,rounded corners=2pt,fill=red!8,minimum width=0.95cm,minimum height=0.8cm,font=\scriptsize] (st\i) at (\i,0) {\textbf{\i}};
+\begin{tikzpicture}[x=2.45cm,y=1.55cm]
+  \foreach \i/\t [count=\k] in {1/tourniquet, 2/haemostatic\\gauze, 3/chest seal, 4/wound care\\\& bandages, 5/plaster \& splint\\(fractures),
+                                6/IV cannula \&\\giving set, 7/normal saline\\IV bag, 8/injection\\drugs, 9/oral tablets\\(painkiller \dots), 10/gloves \&\\trauma shears}{
+     \pgfmathtruncatemacro{\row}{\i>5 ? 1 : 0}\pgfmathtruncatemacro{\col}{\i>5 ? 10-\i : \i-1}
+     \node[draw,rounded corners=2pt,fill=red!8,text width=2.0cm,minimum height=0.95cm,align=center,font=\scriptsize,
+           execute at begin node={\hyphenpenalty=10000}] (st\i) at (\col,-\row) {\textbf{\i}~ \t};
   }
-  \foreach \i [evaluate=\i as \j using int(\i+1)] in {1,...,9} \draw[flowarrow] (st\i) -- (st\j);
-  \node[font=\scriptsize,align=center,anchor=east] at (0.4,0) {empty\\pack};
-  \node[font=\scriptsize,align=center,anchor=west] at (10.6,0) {full\\pack};
-  \node[font=\scriptsize] at (5.5,0.85) {one item added at each station --- walked like an OSCE circuit};
-\end{tikzpicture}\\[1.0em]
+  \foreach \i [evaluate=\i as \j using int(\i+1)] in {1,2,3,4,6,7,8,9} \draw[flowarrow] (st\i) -- (st\j);
+  \draw[flowarrow] (st5) -- (st6);
+  \node[font=\scriptsize,align=center,anchor=east] at ($(st1.west)+(-0.05,0)$) {empty\\pack};
+  \node[font=\scriptsize,align=center,anchor=east] at ($(st10.west)+(-0.05,0)$) {full\\pack};
+  \node[font=\scriptsize] at (2,0.72) {one item added at each station --- walked like an OSCE circuit};
+\end{tikzpicture}\\[0.6em]
 \begin{columns}[t]
 \column{0.45\textwidth}
 \textbf{300 medic backpacks}\\
